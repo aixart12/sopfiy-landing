@@ -27,6 +27,7 @@ Follow these steps to receive emails from your contact form to **yehdhruvkr@gmai
 **Subject:** New Contact Form Submission from SOPify.ai
 
 **Content:**
+
 ```
 New contact form submission from SOPify.ai landing page:
 
@@ -51,26 +52,21 @@ This email was sent from the SOPify.ai contact form.
 2. Find your **Public Key** (also called API Key)
 3. Copy it (you'll need this)
 
-## Step 5: Update script.js
+## Step 5: Configure the React app
 
-Open `script.js` and replace these three values at the top of the file:
+Create `.env.local` in the project root (same folder as `package.json`) with:
 
-```javascript
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // Replace with your Service ID from Step 2
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Replace with your Template ID from Step 3
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your Public Key from Step 4
+```bash
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-For example:
-```javascript
-const EMAILJS_SERVICE_ID = 'service_abc123';
-const EMAILJS_TEMPLATE_ID = 'template_xyz789';
-const EMAILJS_PUBLIC_KEY = 'abcdefghijklmnop';
-```
+If you omit `.env.local`, the defaults in `src/components/ContactForm.tsx` are used (same values you had in the old `script.js`).
 
 ## Step 6: Test It!
 
-1. Open your landing page (`index.html`) in a browser
+1. Run `npm run dev` and open the URL shown in the terminal
 2. Fill out the contact form
 3. Submit it
 4. Check your email inbox at **yehdhruvkr@gmail.com**
@@ -78,12 +74,14 @@ const EMAILJS_PUBLIC_KEY = 'abcdefghijklmnop';
 ## Troubleshooting
 
 ### Emails not arriving?
+
 - Check your spam/junk folder
-- Verify all three IDs are correctly set in `script.js`
+- Verify all three IDs are correctly set in `.env.local` (or in `ContactForm.tsx`)
 - Check the browser console (F12) for any error messages
 - Make sure EmailJS service is connected and active
 
 ### Need help?
+
 - EmailJS Documentation: [https://www.emailjs.com/docs/](https://www.emailjs.com/docs/)
 - EmailJS Support: support@emailjs.com
 
@@ -95,11 +93,4 @@ If you prefer an even simpler solution:
 2. Sign up for free
 3. Create a new form
 4. Get your form endpoint URL
-5. Update the form action in `index.html`:
-
-```html
-<form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-```
-
-And update the JavaScript to use Formspree's native form submission instead of EmailJS.
-
+5. Point the contact form at Formspree (replace the EmailJS submit handler in `ContactForm.tsx` or use a plain `action` form).
