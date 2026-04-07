@@ -21,7 +21,7 @@ export function DemoVideo() {
           </h2>
           <p className="demo-sub">
             The same flows as production: editor, Ask AI, collaboration, and
-            export — the path your team already follows inside SOPify.ai.
+            export — the path your team already follows inside Sopsage.
           </p>
         </header>
         <div className="video-window" aria-label="Product demo video">

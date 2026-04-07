@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Client-side routing: send non-file requests to index.html (safe for single-page landings)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

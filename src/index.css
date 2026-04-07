@@ -1,4 +1,4 @@
-/* SOPify.ai marketing — aligned with app (shadcn / slate primary, not purple CTAs) */
+/* Sopsage marketing — aligned with app (shadcn / slate primary, not purple CTAs) */
 
 *,
 *::before,
@@ -9,7 +9,7 @@
 }
 
 :root {
-  /* Mirrors SOPify.ai frontend globals (light) */
+  /* Mirrors Sopsage frontend globals (light) */
   --background: 210 40% 98%;
   --foreground: 222.2 84% 4.9%;
   --card: 0 0% 100%;

@@ -1,6 +1,6 @@
-# SOPify.ai landing (React + Vite)
+# Sopsage landing (React + Vite)
 
-Marketing site for **SOPify.ai**, aligned with the main app in `SOPify.ai/` (AI-assisted SOPs, collaboration, exports, analytics, roles, Stripe).
+Marketing site for **Sopsage**, aligned with the main app (AI-assisted SOPs, collaboration, exports, analytics, roles, Stripe).
 
 ## Development
 
@@ -34,7 +34,7 @@ Create `.env.local` (not committed):
 
 | Variable                   | Purpose                                                                  |
 | -------------------------- | ------------------------------------------------------------------------ |
-| `VITE_APP_ORIGIN`          | App origin for Sign in / Get started links (default `https://SOPify.ai`) |
+| `VITE_APP_ORIGIN`          | App origin for Sign in / Get started links (default `https://sopsage.com`) |
 | `VITE_EMAILJS_SERVICE_ID`  | EmailJS service                                                          |
 | `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template                                                         |
 | `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key                                                       |
@@ -48,4 +48,4 @@ The workflow sets `VITE_BASE` to `/<repository-name>/` for project pages. For a 
 
 ## License
 
-Created for SOPify.ai. All rights reserved.
+Created for Sopsage. All rights reserved.

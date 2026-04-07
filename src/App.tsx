@@ -46,14 +46,14 @@ function LogoMark() {
   );
 }
 
-const SOPIFY_BAR_WORDS = ["Aligned", "Insightful", "Audit-ready"] as const;
+const SOPSAGE_BAR_WORDS = ["Aligned", "Insightful", "Audit-ready"] as const;
 
-function SopifyBarWords() {
+function SopsageBarWords() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % SOPIFY_BAR_WORDS.length);
+      setIndex((i) => (i + 1) % SOPSAGE_BAR_WORDS.length);
     }, 2400);
     return () => window.clearInterval(id);
   }, []);
@@ -61,10 +61,10 @@ function SopifyBarWords() {
   return (
     <span className="comparison-bar-rotator" aria-live="polite">
       <span
-        key={SOPIFY_BAR_WORDS[index]}
+        key={SOPSAGE_BAR_WORDS[index]}
         className="comparison-bar-rotator__word"
       >
-        {SOPIFY_BAR_WORDS[index]}
+        {SOPSAGE_BAR_WORDS[index]}
       </span>
     </span>
   );
@@ -164,7 +164,7 @@ function HeroPreview() {
           <span className="preview-dot" />
           <span className="preview-dot" />
           <span className="preview-dot" />
-          <span className="preview-title">SOPify.ai — Editor</span>
+          <span className="preview-title">Sopsage — Editor</span>
         </div>
         <div className="preview-body">
           <div className="preview-toolbar">
@@ -299,7 +299,7 @@ export default function App() {
         <div className="container nav-inner">
           <a href="#" className="logo" onClick={() => setMenuOpen(false)}>
             <LogoMark />
-            <span>SOPify.ai</span>
+            <span>Sopsage</span>
           </a>
 
           <button
@@ -393,7 +393,7 @@ export default function App() {
           <div className="hero-copy">
             <p className="eyebrow hero-entrance-child">
               <span className="eyebrow-dot" />
-              SOPify.ai — write, review, ship
+              Sopsage — write, review, ship
             </p>
             <h1 className="hero-title hero-entrance-child">
               Procedures that keep pace
@@ -451,7 +451,7 @@ export default function App() {
             <p className="section-eyebrow">Inside the product</p>
             <h2 className="section-title">The same modules you see after sign-in</h2>
             <p className="section-desc">
-              Every headline here maps to a real area of the SOPify.ai app — from
+              Every headline here maps to a real area of the Sopsage app — from
               Ask AI and the editor to meetings, approvals, and analytics.
             </p>
           </header>
@@ -515,9 +515,9 @@ export default function App() {
                 </div>
               </div>
               <div className="comparison-item after">
-                <div className="comparison-label">SOPify.ai</div>
+                <div className="comparison-label">Sopsage</div>
                 <div className="comparison-bar" style={{ width: "38%" }}>
-                  <SopifyBarWords />
+                  <SopsageBarWords />
                 </div>
               </div>
             </div>
@@ -532,7 +532,7 @@ export default function App() {
             <h2 className="section-title">Walk through the real app</h2>
             <p className="section-desc">
               Share your rollout goals — we’ll connect you with the same
-              SOPify.ai experience your team gets from day one: Ask AI, editor,
+              Sopsage experience your team gets from day one: Ask AI, editor,
               meetings, and governance in one workspace.
             </p>
           </header>
@@ -546,7 +546,7 @@ export default function App() {
             <div className="footer-brand">
               <div className="logo">
                 <LogoMark />
-                <span>SOPify.ai</span>
+                <span>Sopsage</span>
               </div>
               <p>
                 AI-powered SOPs, Ask AI, meetings, approvals, and analytics —
@@ -579,7 +579,7 @@ export default function App() {
           </div>
           <div className="footer-bottom">
             <p>
-              &copy; {new Date().getFullYear()} SOPify.ai. All rights reserved.
+              &copy; {new Date().getFullYear()} Sopsage. All rights reserved.
             </p>
           </div>
         </div>
