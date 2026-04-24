@@ -12,9 +12,8 @@ export function LegalPageShell({ title, children }: LegalPageShellProps) {
     <div className="page-bg">
       <nav className="nav legal-nav">
         <div className="container nav-inner">
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" aria-label="SOPSAGE home">
             <LogoMark />
-            <span>Sopsage</span>
           </Link>
           <div className="legal-nav-links">
             <Link className="nav-link" to="/privacy">

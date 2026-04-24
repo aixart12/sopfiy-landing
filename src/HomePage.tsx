@@ -1,8 +1,9 @@
 import type { ComponentType, SVGProps } from "react";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ContactForm } from "./components/ContactForm";
 import { DemoVideo } from "./components/DemoVideo";
+import { Pricing } from "./components/home/Pricing";
 import { LogoMark } from "./components/LogoMark";
 import { paths } from "./config";
 import {
@@ -123,6 +124,7 @@ const NAV_LINKS = [
   { href: "#features", label: "Features" },
   { href: paths.demo, label: "Demo" },
   { href: "#benefits", label: "Outcomes" },
+  { href: "#pricing", label: "Pricing" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
@@ -165,8 +167,17 @@ function HeroPreview() {
 }
 
 export function HomePage() {
+  const location = useLocation();
   const [navShadow, setNavShadow] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useLayoutEffect(() => {
+    if (location.pathname !== "/contact") return;
+    const target = document.getElementById("contact");
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top, behavior: "smooth" });
+  }, [location.pathname]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -268,9 +279,8 @@ export function HomePage() {
         }}
       >
         <div className="container nav-inner">
-          <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
+          <Link to="/" className="logo" onClick={() => setMenuOpen(false)} aria-label="SOPSAGE home">
             <LogoMark />
-            <span>Sopsage</span>
           </Link>
 
           <button
@@ -496,6 +506,8 @@ export function HomePage() {
         </div>
       </section>
 
+      <Pricing />
+
       <section id="contact" className="contact" data-animate-section>
         <div className="container">
           <header className="contact-header motion-section-child">
@@ -517,7 +529,6 @@ export function HomePage() {
             <div className="footer-brand">
               <div className="logo">
                 <LogoMark />
-                <span>Sopsage</span>
               </div>
               <p>
                 AI-powered SOPs, Ask AI, meetings, approvals, and analytics —
@@ -528,6 +539,7 @@ export function HomePage() {
               <div className="footer-column">
                 <h4>Product</h4>
                 <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
                 <a
                   href={paths.demo}
                   target="_blank"
