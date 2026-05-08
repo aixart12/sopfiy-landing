@@ -630,10 +630,10 @@ export function HomePage() {
 
               {/* Rows */}
               {([
-                { name: "Confluence / Notion", vals: ["no","no","no","no","no"] },
-                { name: "Process Street",      vals: ["no","partial","partial","no","no"] },
-                { name: "Trainual",            vals: ["no","no","no","no","no"] },
-                { name: "MasterControl / Veeva", vals: ["no","no","partial","no","yes"] },
+                { name: "Confluence / Notion", highlight: false, vals: ["no","no","no","no","no"] },
+                { name: "Process Street",      highlight: false, vals: ["no","partial","partial","no","no"] },
+                { name: "Trainual",            highlight: false, vals: ["no","no","no","no","no"] },
+                { name: "MasterControl / Veeva", highlight: false, vals: ["no","no","partial","no","yes"] },
                 { name: "Sopsage", highlight: true, vals: ["yes","yes","yes","roadmap","yes"] },
               ] as const).map(({ name, highlight, vals }) => (
                 <div
