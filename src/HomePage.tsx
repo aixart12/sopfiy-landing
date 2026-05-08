@@ -539,7 +539,7 @@ export function HomePage() {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `url(${import.meta.env.BASE_URL}hero.png)`,
+              backgroundImage: `url(${import.meta.env.BASE_URL}hero.webp)`,
               backgroundSize: "55% auto",
               backgroundPosition: "right center",
               backgroundRepeat: "no-repeat",
@@ -593,7 +593,7 @@ export function HomePage() {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `url(${import.meta.env.BASE_URL}hero.png)`,
+              backgroundImage: `url(${import.meta.env.BASE_URL}hero.webp)`,
               backgroundSize: "50% auto",
               backgroundPosition: "left center",
               backgroundRepeat: "no-repeat",
@@ -729,7 +729,7 @@ export function HomePage() {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `url(${import.meta.env.BASE_URL}hero.png)`,
+              backgroundImage: `url(${import.meta.env.BASE_URL}hero.webp)`,
               backgroundSize: "60% auto",
               backgroundPosition: "right center",
               backgroundRepeat: "no-repeat",

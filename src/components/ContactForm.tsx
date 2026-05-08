@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import { FormEvent, useState } from "react";
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  ?? "service_v7rka5v";
@@ -50,6 +49,7 @@ export function ContactForm() {
       if (SERVICE_ID === "YOUR_SERVICE_ID" || TEMPLATE_ID === "YOUR_TEMPLATE_ID" || PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
         throw new Error("EmailJS not configured");
       }
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
         inquiry_type: fd.get("inquiry_type") ?? "",
         from_name:    fd.get("name")         ?? "",
@@ -64,8 +64,7 @@ export function ContactForm() {
       form.reset();
       setInquiryType("demo");
       setTimeout(() => setSuccess(false), 9000);
-    } catch (err) {
-      console.error("EmailJS:", err);
+    } catch {
       alert(`Something went wrong. Email us directly at ${TO_EMAIL}`);
     } finally {
       setSubmitting(false);

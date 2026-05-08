@@ -14,8 +14,11 @@ export function LogoMark({ variant = "default" }: LogoMarkProps) {
     <img
       src="/sopsage-logo.png"
       alt="SOPSAGE"
+      width={632}
+      height={199}
       className={variantClass[variant]}
       decoding="async"
+      fetchPriority={variant === "default" || variant === "lg" ? "high" : undefined}
     />
   );
 }

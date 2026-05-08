@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const DEMO_SRC     = `${import.meta.env.BASE_URL}demo.mp4`;
+const DEMO_SRC   = `${import.meta.env.BASE_URL}demo.mp4`;
+const POSTER_SRC = `${import.meta.env.BASE_URL}demo-poster.jpg`;
 const PLAYBACK_RATE = 1.5;
 
 export function DemoVideo() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [showFallback, setShowFallback] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadVideo(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "240px 0px", threshold: 0.01 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="demo"
       className="demo py-16 lg:py-20"
       data-animate-section
@@ -50,17 +70,21 @@ export function DemoVideo() {
           >
             {!showFallback && (
               <video
-                autoPlay
+                autoPlay={loadVideo}
                 muted
                 playsInline
                 loop
                 controls
-                preload="auto"
+                preload="none"
+                poster={POSTER_SRC}
                 className="w-full h-full object-cover block"
-                onLoadedMetadata={(e) => { e.currentTarget.playbackRate = PLAYBACK_RATE; }}
+                onLoadedMetadata={(e) => {
+                  e.currentTarget.playbackRate = PLAYBACK_RATE;
+                  void e.currentTarget.play().catch(() => {});
+                }}
                 onError={() => setShowFallback(true)}
               >
-                <source src={DEMO_SRC} type="video/mp4" />
+                {loadVideo ? <source src={DEMO_SRC} type="video/mp4" /> : null}
               </video>
             )}
 
