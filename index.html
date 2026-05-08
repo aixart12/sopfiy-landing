@@ -17,30 +17,24 @@
     <meta name="author" content="Sopsage" />
 
     <!-- ═══════════════════════════════════════
-         KEYWORDS (Bing, DuckDuckGo, Yahoo)
-         Primary + competitor comparison + long-tail
+         KEYWORDS (trimmed — full list in schema SoftwareApplication)
     ═══════════════════════════════════════ -->
-    <meta name="keywords" content="
-      SOP software, standard operating procedure software, SOP management platform, SOP tool,
-      AI SOP generator, AI procedure writing, automated SOP creation, AI-assisted documentation,
-      procedure management software, business process documentation, process management software,
-      approval workflow software, document approval workflow, review and approval software,
-      SOP compliance tracking, procedure execution tracking, drift detection software,
-      compliance management software, audit trail software, compliance documentation,
-      SOC2 compliance software, ISO compliance tool, quality management system, QMS software,
-      document control software, regulated industry compliance, audit ready software,
-      knowledge management software, team wiki software, internal documentation tool,
-      employee onboarding software, training documentation software, standard operating procedures for teams,
-      business process management, BPM software, workflow automation software,
-      operations management software, ops team software, compliance ops platform,
-      Confluence alternative, Notion alternative, Process Street alternative, Trainual alternative,
-      MasterControl alternative, Veeva alternative, document management alternative,
-      SOP template software, SOP tracking software, procedure lifecycle management,
-      AI agents for compliance, AI workflow automation, AI documentation platform,
-      company knowledge base, institutional knowledge management, process debt solution,
-      SOP for startups, SOP for SMB, SOP for enterprise, SOP for ops teams,
-      how to write SOPs, SOP best practices, SOP software for growing teams
-    " />
+    <meta name="keywords" content="SOP software, standard operating procedure software, AI SOP generator, compliance documentation, procedure management, workflow automation, approval workflow, drift detection, audit trail, Confluence alternative, Notion alternative, Process Street alternative, SOC2 compliance, ISO compliance, QMS software, knowledge base, ops teams" />
+
+    <!-- ═══════════════════════════════════════
+         FONTS (early — before social meta to start fetching sooner)
+    ═══════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" />
+    </noscript>
 
     <!-- ═══════════════════════════════════════
          OPEN GRAPH (LinkedIn, Slack, WhatsApp)
@@ -66,10 +60,9 @@
     <meta name="twitter:description" content="AI SOP software that detects drift before it becomes risk. Drafting from meetings, approval queues, execution tracking, compliance packages — automated. Built for ops teams of 10–500." />
     <meta name="twitter:image" content="https://sopsage.com/og-image.png" />
     <meta name="twitter:image:alt" content="Sopsage SOP platform dashboard" />
-
-    <!-- ═══════════════════════════════════════
-         STRUCTURED DATA — SoftwareApplication
-    ═══════════════════════════════════════ -->
+  </head>
+  <body>
+    <!-- Structured data in body: smaller document head so CSS/JS links are discovered earlier -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -228,14 +221,6 @@
     }
     </script>
 
-    <!-- ═══════════════════════════════════════
-         FONTS
-    ═══════════════════════════════════════ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet" />
-  </head>
-  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -33,7 +33,7 @@ export function DemoVideo() {
       data-animate-section
       aria-labelledby="demo-heading"
     >
-      <div className="container-wide">
+        <div className="container-wide">
         {/* Header */}
         <header className="demo-header text-center max-w-[40rem] mx-auto mb-10">
           <p className="section-eyebrow">Product tour</p>
@@ -48,7 +48,7 @@ export function DemoVideo() {
         </header>
 
         {/* Video */}
-        <div className="video-window relative w-full py-6 lg:py-8" aria-label="Product demo video">
+        <div className="video-window relative w-full py-6 lg:py-8">
           {/* Indigo glow */}
           <div
             className="video-window-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1240px] aspect-video rounded-[1.375rem] pointer-events-none z-0"
