@@ -1,13 +1,12 @@
 type LogoMarkProps = {
-  /** Preset height for header / footer / mobile sheet */
   variant?: "default" | "lg" | "menu" | "footer";
 };
 
 const variantClass: Record<NonNullable<LogoMarkProps["variant"]>, string> = {
-  default: "logo-mark",
-  lg: "logo-mark logo-mark--lg",
-  menu: "logo-mark logo-mark--menu",
-  footer: "logo-mark logo-mark--footer",
+  default: "block h-8 max-h-8 w-auto max-w-[min(11rem,55vw)] object-contain object-left shrink-0",
+  lg:      "block h-9 max-h-9 w-auto max-w-[min(12rem,60vw)] object-contain object-left shrink-0",
+  menu:    "block h-10 max-h-10 w-auto max-w-[min(13rem,85vw)] object-contain object-left shrink-0",
+  footer:  "block h-7 max-h-7 w-auto max-w-[10rem] object-contain object-left shrink-0",
 };
 
 export function LogoMark({ variant = "default" }: LogoMarkProps) {
