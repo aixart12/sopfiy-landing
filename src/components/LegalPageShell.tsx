@@ -16,6 +16,7 @@ export function LegalPageShell({ title, children }: Props) {
               <LogoMark />
             </Link>
             <div className="flex items-center gap-2">
+              <Link to="/about"   className="nav-link">About</Link>
               <Link to="/privacy" className="nav-link">Privacy</Link>
               <Link to="/terms"   className="nav-link">Terms</Link>
               <Link to="/" className="btn btn-secondary">Back to home</Link>

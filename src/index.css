@@ -365,6 +365,46 @@
 }
 
 /* ============================================================
+   ROI CALCULATOR SLIDER
+============================================================ */
+.roi-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--roi-accent) var(--roi-fill), var(--color-muted) var(--roi-fill));
+  outline: none;
+  cursor: pointer;
+}
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--color-card);
+  border: 3px solid var(--roi-accent);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.15s var(--ease-out);
+}
+.roi-slider::-webkit-slider-thumb:hover { transform: scale(1.12); }
+.roi-slider::-moz-range-thumb {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--color-card);
+  border: 3px solid var(--roi-accent);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.15s var(--ease-out);
+}
+.roi-slider::-moz-range-thumb:hover { transform: scale(1.12); }
+.roi-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+/* ============================================================
    VIDEO GLOW PULSE
 ============================================================ */
 @media (prefers-reduced-motion: no-preference) {

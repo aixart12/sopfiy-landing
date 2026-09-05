@@ -189,6 +189,26 @@ export function IconTrendingUp({ className, ...props }: IconProps) {
   );
 }
 
+/** Clock — time saved */
+export function IconClock({ className, ...props }: IconProps) {
+  return (
+    <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
+    </svg>
+  );
+}
+
+/** Dollar sign — cost saved */
+export function IconDollar({ className, ...props }: IconProps) {
+  return (
+    <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden {...props}>
+      <line x1="12" x2="12" y1="1" y2="23" />
+      <path d="M17 5.5c0-1.93-2.24-3.5-5-3.5S7 3.57 7 5.5 9.24 9 12 9s5 1.57 5 3.5-2.24 3.5-5 3.5-5-1.57-5-3.5" />
+    </svg>
+  );
+}
+
 /** AlertCircle — problem / warning */
 export function IconAlertCircle({ className, ...props }: IconProps) {
   return (

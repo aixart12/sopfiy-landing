@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "#why",       label: "Why Us" },
   { href: paths.demo,   label: "Demo" },
   { href: "#benefits",  label: "Outcomes" },
+  { href: "#offer",     label: "Offer" },
   { href: "#pricing",   label: "Pricing" },
   { href: "#contact",   label: "Connect" },
 ] as const;
@@ -222,6 +223,7 @@ export function HomePage() {
             {/* Desktop links */}
             <div className="hidden lg:flex items-center gap-4 flex-1 justify-end">
               <div className="flex items-center gap-1">
+                <Link to="/about" className="nav-link">About</Link>
                 {NAV_LINKS.map((l) => (
                   <a key={l.href} href={l.href} className="nav-link"
                     {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
@@ -248,6 +250,9 @@ export function HomePage() {
       {/* Mobile nav sheet */}
       <div className={`nav-sheet${menuOpen ? " is-open" : ""}`} id="mobile-nav" role="dialog" aria-modal="true" aria-label="Site navigation">
         <div className="flex flex-col px-5 pb-8 pt-4 gap-1">
+          <Link to="/about" className="block px-4 py-[0.875rem] text-base font-semibold text-foreground no-underline rounded-[0.625rem] hover:bg-muted/70 transition-colors duration-150" onClick={() => setMenuOpen(false)}>
+            About
+          </Link>
           {NAV_LINKS.map((l) => (
             <a key={l.href} href={l.href} className="block px-4 py-[0.875rem] text-base font-semibold text-foreground no-underline rounded-[0.625rem] hover:bg-muted/70 transition-colors duration-150"
               {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}

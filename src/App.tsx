@@ -2,6 +2,10 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { HomePage } from "./HomePage";
 
+const AboutPage = lazy(async () => {
+  const m = await import("./pages/AboutPage");
+  return { default: m.AboutPage };
+});
 const PrivacyPage = lazy(async () => {
   const m = await import("./pages/PrivacyPage");
   return { default: m.PrivacyPage };
@@ -20,6 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

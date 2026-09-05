@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ContactForm } from "../components/ContactForm";
 import { DemoVideo } from "../components/DemoVideo";
 import { Pricing } from "../components/home/Pricing";
+import { ROICalculator } from "../components/home/ROICalculator";
 import { LogoMark } from "../components/LogoMark";
 import { paths } from "../config";
 import {
@@ -15,6 +16,7 @@ import {
   IconGlobe,
   IconHelp,
   IconHistory,
+  IconLayout,
   IconMail,
   IconMic,
   IconShield,
@@ -102,6 +104,14 @@ const differentiators = [
     label: "One audit trail, not ten tools",
     body: "Draft → review → approve → execute → analyze. Every step timestamped, every approver named. Audit readiness is a byproduct of daily use, not a quarterly scramble." },
 ];
+
+/* ─── Founding offer ─── */
+const offerSteps = [
+  { Icon: IconUpload,    text: "We take your scattered docs, Drive folders, and tribal knowledge" },
+  { Icon: IconFileText,  text: "We convert everything into structured, versioned SOPs inside Sopsage" },
+  { Icon: IconLayout,    text: "We build your team's daily workflows and checklists" },
+  { Icon: IconMic,       text: "We train your team on live calls" },
+] as const;
 
 /* ─── Vision / roadmap teasers ─── */
 const roadmap = [
@@ -195,6 +205,11 @@ export function HomeBelowFold() {
     </p>
   </div>
 </section>
+
+{/* ═══════════════════════════════
+    ROI CALCULATOR
+═══════════════════════════════ */}
+<ROICalculator />
 
 {/* ═══════════════════════════════
     DEMO VIDEO
@@ -502,6 +517,75 @@ export function HomeBelowFold() {
 </section>
 
 {/* ═══════════════════════════════
+    FOUNDING OFFER
+═══════════════════════════════ */}
+<section id="offer" className="py-20 lg:py-24" data-animate-section>
+  <div className="container">
+    <header className="section-head motion-child">
+      <p className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.1em] uppercase text-[hsl(30_90%_42%)] mb-3">
+        <span className="w-1.5 h-1.5 rounded-full bg-accent-amber" />
+        Limited to our first 5 companies
+      </p>
+      <h2 className="section-title">We'll migrate your team's SOPs for free</h2>
+      <p className="section-desc">
+        For our first 5 customers, my team will personally onboard you — no migration
+        work on your end, no learning curve, just a working system in two weeks.
+      </p>
+    </header>
+
+    <div className="motion-child motion-child-delay relative overflow-hidden rounded-[var(--radius-xl)] border-2 border-accent-amber/30 bg-card shadow-xl max-w-[54rem] mx-auto">
+      <div
+        className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_60%_at_100%_0%,hsl(38_94%_50%/0.10),transparent)]"
+        aria-hidden
+      />
+
+      <div className="relative grid grid-cols-1 lg:grid-cols-[1.4fr_1fr]">
+        {/* LEFT — what we do */}
+        <div className="p-7 sm:p-9 lg:p-10">
+          <p className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.1em] uppercase text-accent-amber mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-amber" />
+            What we do for you
+          </p>
+
+          <ul className="flex flex-col gap-4 mb-7">
+            {offerSteps.map(({ Icon, text }) => (
+              <li key={text} className="flex gap-3.5 items-start">
+                <div className="shrink-0 w-8 h-8 rounded-lg bg-accent-amber/12 text-[hsl(30_90%_38%)] flex items-center justify-center mt-0.5">
+                  <Icon width={16} height={16} strokeWidth={2} />
+                </div>
+                <p className="text-[0.9375rem] font-medium text-body leading-[1.55] pt-1">{text}</p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-primary/6 border border-primary/15">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(238 62% 48%)" strokeWidth="2.5" className="shrink-0">
+              <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
+            </svg>
+            <p className="text-[0.875rem] font-bold text-foreground">Done in 14 days. You lift zero fingers on migration.</p>
+          </div>
+        </div>
+
+        {/* RIGHT — value + CTA */}
+        <div className="p-7 sm:p-9 lg:p-10 bg-dark text-white flex flex-col justify-center">
+          <p className="text-xs font-bold tracking-[0.1em] uppercase text-white/50 mb-4">Service value</p>
+          <p className="text-[1.375rem] font-semibold text-white/45 line-through decoration-2 mb-1">₹75,000+</p>
+          <p className="font-extrabold tracking-[-0.03em] text-white mb-1" style={{ fontSize: "clamp(2.5rem, 5vw, 3.25rem)" }}>
+            Free
+          </p>
+          <p className="text-[0.9375rem] text-white/65 mb-7">for the first 5 companies that come on board</p>
+
+          <a href="#contact" className="btn btn-primary btn-primary-lg btn-block justify-center mb-3">
+            Claim your free onboarding
+          </a>
+          <p className="text-[0.75rem] text-white/40 text-center">Only 5 spots. First come, first served.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ═══════════════════════════════
     PRICING
 ═══════════════════════════════ */}
 <Pricing />
@@ -593,6 +677,7 @@ export function HomeBelowFold() {
         {[
           { heading: "Product", links: [{ label: "Features", href: "#features" }, { label: "Pricing", href: "#pricing" }, { label: "Demo", href: paths.demo, external: true }] },
           { heading: "Application", links: [{ label: "Sign in", href: paths.login, external: true }, { label: "Connect", href: "#contact" }] },
+          { heading: "Company", links: [{ label: "About", to: "/about" }] },
           { heading: "Legal", links: [{ label: "Privacy", to: "/privacy" }, { label: "Terms", to: "/terms" }] },
         ].map(({ heading, links }) => (
           <div key={heading}>
